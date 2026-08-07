@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Courses — Comtech Computer Academy</title>
+<meta name="description" content="Explore Google Workspace, MS Excel and Tally Prime with GST courses at Comtech Computer Academy.">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+<header>
+  <div class="nav-wrap">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.png" alt="Comtech Computer Academy logo">
+    </a>
+    <nav class="links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses</a>
+      <a href="notes.html">Notes</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-outline" style="padding:10px 20px;font-size:0.88rem;">Enquire <i class="fa-solid fa-arrow-right" style="font-size:0.8em;"></i></a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="ring"></div>
+  <div class="page-hero-inner reveal">
+    <div class="breadcrumb"><a href="index.html">Home</a> <i class="fa-solid fa-chevron-right"></i> Courses</div>
+    <div class="section-tag">Courses</div>
+    <h1>Pick a course, see the modules, and get straight to practising.</h1>
+    <p>Each course runs as a structured batch with weekly modules, in-class exercises and a set of notes you can download any time from the Notes library.</p>
+  </div>
+</section>
+
+<section class="courses-section">
+    <div class="container">
+
+        <div class="section-header">
+            <span class="section-tag">Our Courses</span>
+            <h2>Choose the Right Course for Your Career</h2>
+            <p>
+                Explore our practical, industry-oriented computer courses designed
+                for students, job seekers and working professionals.
+            </p>
+        </div>
+
+
+
+        <div class="courses-grid" id="coursesGrid">
+
+            <!-- Office -->
+            <div class="category-card reveal" id="cat-office">
+                <button class="cat-head" aria-expanded="false" aria-controls="panel-office">
+                    <div class="cat-top">
+                        <div class="cat-icon"><i class="fa-solid fa-desktop"></i></div>
+                        <span class="cat-count">6 Courses</span>
+                    </div>
+                    <h3>Office Courses</h3>
+                    <p class="cat-desc">Everyday office software skills employers expect from day one.</p>
+                    <button class="view-btn">View courses <i class="fa-solid fa-chevron-down"></i></button>
+                </button>
+                <div class="cat-panel" id="panel-office">
+                    <div class="cat-panel-inner">
+                        <ul>
+                            <li><i class="fa-solid fa-circle-check"></i> Computer Fundamentals</li>
+                            <li><i class="fa-solid fa-circle-check"></i> MS Word</li>
+                            <li><i class="fa-solid fa-circle-check"></i> MS Excel</li>
+                            <li><i class="fa-solid fa-circle-check"></i> MS PowerPoint</li>
+                            <li><i class="fa-solid fa-circle-check"></i> MS Access</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Google Workspace</li>
+                        </ul>
+                        <a href="contact.html" class="cat-panel-link">Enquire about these courses <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Programming -->
+            <div class="category-card reveal" id="cat-programming">
+                <button class="cat-head" aria-expanded="false" aria-controls="panel-programming">
+                    <div class="cat-top">
+                        <div class="cat-icon"><i class="fa-solid fa-code"></i></div>
+                        <span class="cat-count">4 Courses</span>
+                    </div>
+                    <h3>Programming</h3>
+                    <p class="cat-desc">Core languages and logic-building for students and job seekers.</p>
+                    <button class="view-btn">View courses <i class="fa-solid fa-chevron-down"></i></button>
+                </button>
+                <div class="cat-panel" id="panel-programming">
+                    <div class="cat-panel-inner">
+                        <ul>
+                            <li><i class="fa-solid fa-circle-check"></i> C</li>
+                            <li><i class="fa-solid fa-circle-check"></i> C++</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Java</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Python</li>
+                            
+                        </ul>
+                        <a href="contact.html" class="cat-panel-link">Enquire about these courses <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Web -->
+            <div class="category-card reveal" id="cat-web">
+                <button class="cat-head" aria-expanded="false" aria-controls="panel-web">
+                    <div class="cat-top">
+                        <div class="cat-icon"><i class="fa-solid fa-globe"></i></div>
+                        <span class="cat-count">4 Courses</span>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p class="cat-desc">Build and style real websites, front to back.</p>
+                    <button class="view-btn">View courses <i class="fa-solid fa-chevron-down"></i></button>
+                </button>
+                <div class="cat-panel" id="panel-web">
+                    <div class="cat-panel-inner">
+                        <ul>
+                            <li><i class="fa-solid fa-circle-check"></i> Web Page Designing</li>
+                            <li><i class="fa-solid fa-circle-check"></i> PHP</li>
+                            <li><i class="fa-solid fa-circle-check"></i> SQL &amp; Databases</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Word Press</li>
+
+                
+                        </ul>
+                        <a href="contact.html" class="cat-panel-link">Enquire about these courses <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tally -->
+            <div class="category-card reveal" id="cat-tally">
+                <button class="cat-head" aria-expanded="false" aria-controls="panel-tally">
+                    <div class="cat-top">
+                        <div class="cat-icon"><i class="fa-solid fa-calculator"></i></div>
+                        <span class="cat-count">4 Courses</span>
+                    </div>
+                    <h3>Tally &amp; GST</h3>
+                    <p class="cat-desc">Complete accounting, payroll and GST return filing.</p>
+                    <button class="view-btn">View courses <i class="fa-solid fa-chevron-down"></i></button>
+                </button>
+                <div class="cat-panel" id="panel-tally">
+                    <div class="cat-panel-inner">
+                        <ul>
+                            <li><i class="fa-solid fa-circle-check"></i> Tally Prime</li>
+                            <li><i class="fa-solid fa-circle-check"></i> GST Filing &amp; Returns</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Payroll Management</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Inventory Management</li>
+                        </ul>
+                        <a href="contact.html" class="cat-panel-link">Enquire about these courses <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Design -->
+            <div class="category-card reveal" id="cat-design">
+                <button class="cat-head" aria-expanded="false" aria-controls="panel-design">
+                    <div class="cat-top">
+                        <div class="cat-icon"><i class="fa-solid fa-palette"></i></div>
+                        <span class="cat-count">4 Courses</span>
+                    </div>
+                    <h3>Graphic Design</h3>
+                    <p class="cat-desc">Visual design tools for print, social and video.</p>
+                    <button class="view-btn">View courses <i class="fa-solid fa-chevron-down"></i></button>
+                </button>
+                <div class="cat-panel" id="panel-design">
+                    <div class="cat-panel-inner">
+                        <ul>
+                            <li><i class="fa-solid fa-circle-check"></i> Photoshop</li>
+                            <li><i class="fa-solid fa-circle-check"></i> CorelDRAW</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Adobe Illustrator</li>
+                            <li><i class="fa-solid fa-circle-check"></i> PageMaker</li>
+                        
+                        </ul>
+                        <a href="contact.html" class="cat-panel-link">Enquire about these courses <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Digital -->
+            <div class="category-card reveal" id="cat-marketing">
+                <button class="cat-head" aria-expanded="false" aria-controls="panel-marketing">
+                    <div class="cat-top">
+                        <div class="cat-icon"><i class="fa-solid fa-wrench"></i></div>
+                        <span class="cat-count">5 Courses</span>
+                    </div>
+                    <h3>Hadrware & Networking</h3>
+                    <p class="cat-desc">Learn hardware and networking with hands-on training.</p>
+                    <button class="view-btn">View courses <i class="fa-solid fa-chevron-down"></i></button>
+                </button>
+                <div class="cat-panel" id="panel-marketing">
+                    <div class="cat-panel-inner">
+                        <ul>
+                            <li><i class="fa-solid fa-circle-check"></i> Basic Computer</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Electronics</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Assembling & Disassembling</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Installations Of OS</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Drivers & Applications</li>
+                        </ul>
+                        <a href="contact.html" class="cat-panel-link">Enquire about these courses <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="courses-empty" id="coursesEmpty">
+                <i class="fa-solid fa-magnifying-glass" style="font-size:1.3rem;display:block;margin-bottom:12px;color:var(--red);"></i>
+                No courses match your search. Try a different keyword, or <a href="contact.html" style="color:var(--red-dark);font-weight:600;">ask our front desk</a>.
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<footer>
+  <div class="ring"></div>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <div class="footer-brand">
+          <div style="background:var(--cream);padding:8px 14px;border-radius:10px;display:inline-flex;">
+            <img src="assets/logo.png" alt="Comtech Computer Academy logo" style="height:44px;width:auto;">
+          </div>
+        </div>
+        <p style="font-size:0.92rem;line-height:1.7;color:rgba(255,255,255,0.6);max-width:320px;">A practical computer training academy teaching Google Workspace, MS Excel and Tally Prime — small batches, real exercises, notes for every class.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <h5>Quick links</h5>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="notes.html">Notes</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Courses</h5>
+        <ul class="footer-links">
+          <li><a href="courses.html">Google Workspace</a></li>
+          <li><a href="courses.html">MS Excel</a></li>
+          <li><a href="courses.html">Tally Prime with GST</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Contact</h5>
+        <ul class="footer-contact">
+          <li><i class="fa-solid fa-location-dot"></i> Main Market Road, Your City</li>
+          <li><i class="fa-solid fa-phone"></i> +91 98765 43210</li>
+          <li><i class="fa-solid fa-envelope"></i> comtechgoa@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> Comtech Computer Academy. All rights reserved.</span>
+      <span><a href="#">Privacy policy</a> &middot; <a href="#">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"><i class="fa-solid fa-circle-check"></i><span>Note downloaded</span></div>
+<a href="https://wa.me/919876543210?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20courses." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+  <span class="wa-tip">Chat with us</span>
+</a>
+
+<script src="js/script.js"></script>
+</body>
+</html>

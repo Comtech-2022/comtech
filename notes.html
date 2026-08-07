@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notes Library — Comtech Computer Academy</title>
+<meta name="description" content="Download class notes for Google Workspace, MS Excel and Tally Prime courses at Comtech Computer Academy.">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+<header>
+  <div class="nav-wrap">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.png" alt="Comtech Computer Academy logo">
+    </a>
+    <nav class="links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses</a>
+      <a href="notes.html">Notes</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-outline" style="padding:10px 20px;font-size:0.88rem;">Enquire <i class="fa-solid fa-arrow-right" style="font-size:0.8em;"></i></a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="ring"></div>
+  <div class="page-hero-inner reveal">
+    <div class="breadcrumb"><a href="index.html">Home</a> <i class="fa-solid fa-chevron-right"></i> Notes</div>
+    <div class="section-tag">Notes library</div>
+    <h1>Download class notes, anytime.</h1>
+    <p>Notes are added after every session. Filter by course and download the ones you need — no login required.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="notes-toolbar reveal" id="notesToolbar">
+      <div class="filter-chip active" data-filter="all">All notes</div>
+      <div class="filter-chip" data-filter="gws">Google Workspace</div>
+      <div class="filter-chip" data-filter="excel">MS Excel</div>
+      <div class="filter-chip" data-filter="tally">Tally Prime</div>
+    </div>
+
+    <div class="notes-list" id="notesList">
+      <div class="note-row reveal" data-course="gws">
+        <div class="note-left"><div class="note-icon">GWS</div><div><div class="note-title">Docs &amp; Sheets — Getting Started</div><div class="note-sub">Module 1 &middot; PDF-ready notes</div></div></div>
+        <button class="btn btn-primary" onclick="downloadNote('Google Workspace - Module 1 - Docs and Sheets Getting Started')"><i class="fa-solid fa-download"></i> Download</button>
+      </div>
+      <div class="note-row reveal" data-course="gws">
+        <div class="note-left"><div class="note-icon">GWS</div><div><div class="note-title">Shared Drives &amp; Permissions</div><div class="note-sub">Module 2 &middot; PDF-ready notes</div></div></div>
+        <button class="btn btn-primary" onclick="downloadNote('Google Workspace - Module 2 - Shared Drives and Permissions')"><i class="fa-solid fa-download"></i> Download</button>
+      </div>
+      <div class="note-row reveal" data-course="gws">
+        <div class="note-left"><div class="note-icon">GWS</div><div><div class="note-title">Forms, Slides &amp; Calendar</div><div class="note-sub">Module 3 &middot; PDF-ready notes</div></div></div>
+        <button class="btn btn-primary" onclick="downloadNote('Google Workspace - Module 3 - Forms Slides and Calendar')"><i class="fa-solid fa-download"></i> Download</button>
+      </div>
+
+      <div class="note-row reveal" data-course="excel">
+        <div class="note-left"><div class="note-icon">EXL</div><div><div class="note-title">Formulas &amp; Functions Cheat Sheet</div><div class="note-sub">Module 1 &middot; PDF-ready notes</div></div></div>
+        <button class="btn btn-primary" onclick="downloadNote('MS Excel - Module 1 - Formulas and Functions Cheat Sheet')"><i class="fa-solid fa-download"></i> Download</button>
+      </div>
+      <div class="note-row reveal" data-course="excel">
+        <div class="note-left"><div class="note-icon">EXL</div><div><div class="note-title">Pivot Tables &amp; Charts</div><div class="note-sub">Module 2 &middot; PDF-ready notes</div></div></div>
+        <button class="btn btn-primary" onclick="downloadNote('MS Excel - Module 2 - Pivot Tables and Charts')"><i class="fa-solid fa-download"></i> Download</button>
+      </div>
+      <div class="note-row reveal" data-course="excel">
+        <div class="note-left"><div class="note-icon">EXL</div><div><div class="note-title">Dashboards &amp; XLOOKUP</div><div class="note-sub">Module 3 &middot; PDF-ready notes</div></div></div>
+        <button class="btn btn-primary" onclick="downloadNote('MS Excel - Module 3 - Dashboards and XLOOKUP')"><i class="fa-solid fa-download"></i> Download</button>
+      </div>
+
+      <div class="note-row reveal" data-course="tally">
+        <div class="note-left"><div class="note-icon">TLY</div><div><div class="note-title">Company &amp; Ledger Setup</div><div class="note-sub">Module 1 &middot; PDF-ready notes</div></div></div>
+        <button class="btn btn-primary" onclick="downloadNote('Tally Prime - Module 1 - Company and Ledger Setup')"><i class="fa-solid fa-download"></i> Download</button>
+      </div>
+      <div class="note-row reveal" data-course="tally">
+        <div class="note-left"><div class="note-icon">TLY</div><div><div class="note-title">Vouchers, Invoicing &amp; Inventory</div><div class="note-sub">Module 2 &middot; PDF-ready notes</div></div></div>
+        <button class="btn btn-primary" onclick="downloadNote('Tally Prime - Module 2 - Vouchers Invoicing and Inventory')"><i class="fa-solid fa-download"></i> Download</button>
+      </div>
+      <div class="note-row reveal" data-course="tally">
+        <div class="note-left"><div class="note-icon">TLY</div><div><div class="note-title">GST Reports &amp; Return Filing</div><div class="note-sub">Module 3 &middot; PDF-ready notes</div></div></div>
+        <button class="btn btn-primary" onclick="downloadNote('Tally Prime - Module 3 - GST Reports and Return Filing')"><i class="fa-solid fa-download"></i> Download</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ring"></div>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <div class="footer-brand">
+          <div style="background:var(--cream);padding:8px 14px;border-radius:10px;display:inline-flex;">
+            <img src="assets/logo.png" alt="Comtech Computer Academy logo" style="height:44px;width:auto;">
+          </div>
+        </div>
+        <p style="font-size:0.92rem;line-height:1.7;color:rgba(255,255,255,0.6);max-width:320px;">A practical computer training academy teaching Google Workspace, MS Excel and Tally Prime — small batches, real exercises, notes for every class.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <h5>Quick links</h5>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="notes.html">Notes</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Courses</h5>
+        <ul class="footer-links">
+          <li><a href="courses.html">Google Workspace</a></li>
+          <li><a href="courses.html">MS Excel</a></li>
+          <li><a href="courses.html">Tally Prime with GST</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Contact</h5>
+        <ul class="footer-contact">
+          <li><i class="fa-solid fa-location-dot"></i> Main Market Road, Your City</li>
+          <li><i class="fa-solid fa-phone"></i> +91 98765 43210</li>
+          <li><i class="fa-solid fa-envelope"></i> info@comtechacademy.in</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> Comtech Computer Academy. All rights reserved.</span>
+      <span><a href="#">Privacy policy</a> &middot; <a href="#">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"><i class="fa-solid fa-circle-check"></i><span>Note downloaded</span></div>
+<a href="https://wa.me/919876543210?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20courses." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+  <span class="wa-tip">Chat with us</span>
+</a>
+
+<script src="js/script.js"></script>
+</body>
+</html>
