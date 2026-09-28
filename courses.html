@@ -53,46 +53,63 @@
             </p>
         </div>
 
+        <!-- Live Course Search -->
+        <div class="course-search">
+            <div class="course-search-wrap">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="courseSearch" placeholder="Search any course (e.g. Excel, Tally, Python, Photoshop)..." aria-label="Search courses">
+            </div>
+        </div>
 
+        <!-- Category Filter Chips -->
+        <div class="course-filter-chips">
+            <button type="button" class="filter-chip active" data-filter="all">All Courses</button>
+            <button type="button" class="filter-chip" data-filter="office">Office &amp; Productivity</button>
+            <button type="button" class="filter-chip" data-filter="programming">Programming</button>
+            <button type="button" class="filter-chip" data-filter="web">Web Development</button>
+            <button type="button" class="filter-chip" data-filter="tally">Tally &amp; Accounting</button>
+            <button type="button" class="filter-chip" data-filter="design">Graphic Design</button>
+            <button type="button" class="filter-chip" data-filter="professional">Professional &amp; Career</button>
+        </div>
 
         <div class="courses-grid" id="coursesGrid">
 
-            <!-- Office -->
-            <div class="category-card reveal" id="cat-office">
-                <button class="cat-head" aria-expanded="false" aria-controls="panel-office">
+            <!-- Modular Courses -->
+            <div class="category-card reveal" id="cat-modular" data-category="office">
+                <button type="button" class="cat-head" aria-expanded="false" aria-controls="panel-modular">
                     <div class="cat-top">
-                        <div class="cat-icon"><i class="fa-solid fa-desktop"></i></div>
+                        <div class="cat-icon"><i class="fa-solid fa-cubes-stacked"></i></div>
                         <span class="cat-count">6 Courses</span>
                     </div>
-                    <h3>Office Courses</h3>
-                    <p class="cat-desc">Everyday office software skills employers expect from day one.</p>
-                    <button class="view-btn">View courses <i class="fa-solid fa-chevron-down"></i></button>
+                    <h3>Modular Courses</h3>
+                    <p class="cat-desc">Build essential computer and office skills effectively.</p>
+                    <span class="view-btn">View courses <i class="fa-solid fa-chevron-down"></i></span>
                 </button>
-                <div class="cat-panel" id="panel-office">
+                <div class="cat-panel" id="panel-modular">
                     <div class="cat-panel-inner">
                         <ul>
-                            <li><i class="fa-solid fa-circle-check"></i> Computer Fundamentals</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Digital Marketing</li>
                             <li><i class="fa-solid fa-circle-check"></i> MS Word</li>
                             <li><i class="fa-solid fa-circle-check"></i> MS Excel</li>
                             <li><i class="fa-solid fa-circle-check"></i> MS PowerPoint</li>
                             <li><i class="fa-solid fa-circle-check"></i> MS Access</li>
                             <li><i class="fa-solid fa-circle-check"></i> Google Workspace</li>
                         </ul>
-                        <a href="contact.html" class="cat-panel-link">Enquire about these courses <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="contact.html?course=Modular%20Courses" class="cat-panel-link">Enquire about these courses <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
 
             <!-- Programming -->
-            <div class="category-card reveal" id="cat-programming">
-                <button class="cat-head" aria-expanded="false" aria-controls="panel-programming">
+            <div class="category-card reveal" id="cat-programming" data-category="programming">
+                <button type="button" class="cat-head" aria-expanded="false" aria-controls="panel-programming">
                     <div class="cat-top">
                         <div class="cat-icon"><i class="fa-solid fa-code"></i></div>
                         <span class="cat-count">4 Courses</span>
                     </div>
                     <h3>Programming</h3>
-                    <p class="cat-desc">Core languages and logic-building for students and job seekers.</p>
-                    <button class="view-btn">View courses <i class="fa-solid fa-chevron-down"></i></button>
+                    <p class="cat-desc">Learn coding and software development basics.</p>
+                    <span class="view-btn">View courses <i class="fa-solid fa-chevron-down"></i></span>
                 </button>
                 <div class="cat-panel" id="panel-programming">
                     <div class="cat-panel-inner">
@@ -101,23 +118,22 @@
                             <li><i class="fa-solid fa-circle-check"></i> C++</li>
                             <li><i class="fa-solid fa-circle-check"></i> Java</li>
                             <li><i class="fa-solid fa-circle-check"></i> Python</li>
-                            
                         </ul>
-                        <a href="contact.html" class="cat-panel-link">Enquire about these courses <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="contact.html?course=Programming" class="cat-panel-link">Enquire about these courses <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
 
-            <!-- Web -->
-            <div class="category-card reveal" id="cat-web">
-                <button class="cat-head" aria-expanded="false" aria-controls="panel-web">
+            <!-- Web Development -->
+            <div class="category-card reveal" id="cat-web" data-category="web">
+                <button type="button" class="cat-head" aria-expanded="false" aria-controls="panel-web">
                     <div class="cat-top">
                         <div class="cat-icon"><i class="fa-solid fa-globe"></i></div>
                         <span class="cat-count">4 Courses</span>
                     </div>
                     <h3>Web Development</h3>
-                    <p class="cat-desc">Build and style real websites, front to back.</p>
-                    <button class="view-btn">View courses <i class="fa-solid fa-chevron-down"></i></button>
+                    <p class="cat-desc">Build modern and responsive websites easily.</p>
+                    <span class="view-btn">View courses <i class="fa-solid fa-chevron-down"></i></span>
                 </button>
                 <div class="cat-panel" id="panel-web">
                     <div class="cat-panel-inner">
@@ -125,49 +141,46 @@
                             <li><i class="fa-solid fa-circle-check"></i> Web Page Designing</li>
                             <li><i class="fa-solid fa-circle-check"></i> PHP</li>
                             <li><i class="fa-solid fa-circle-check"></i> SQL &amp; Databases</li>
-                            <li><i class="fa-solid fa-circle-check"></i> Word Press</li>
-
-                
+                            <li><i class="fa-solid fa-circle-check"></i> WordPress</li>
                         </ul>
-                        <a href="contact.html" class="cat-panel-link">Enquire about these courses <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="contact.html?course=Web%20Development" class="cat-panel-link">Enquire about these courses <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
 
-            <!-- Tally -->
-            <div class="category-card reveal" id="cat-tally">
-                <button class="cat-head" aria-expanded="false" aria-controls="panel-tally">
+            <!-- Professional Courses -->
+            <div class="category-card reveal" id="cat-pro" data-category="professional">
+                <button type="button" class="cat-head" aria-expanded="false" aria-controls="panel-pro">
                     <div class="cat-top">
-                        <div class="cat-icon"><i class="fa-solid fa-calculator"></i></div>
-                        <span class="cat-count">4 Courses</span>
+                        <div class="cat-icon"><i class="fa-solid fa-user-tie"></i></div>
+                        <span class="cat-count">3 Courses</span>
                     </div>
-                    <h3>Tally &amp; GST</h3>
-                    <p class="cat-desc">Complete accounting, payroll and GST return filing.</p>
-                    <button class="view-btn">View courses <i class="fa-solid fa-chevron-down"></i></button>
+                    <h3>Professional Courses</h3>
+                    <p class="cat-desc">Learn Stenography, SAP (FICO), and Digital Marketing.</p>
+                    <span class="view-btn">View courses <i class="fa-solid fa-chevron-down"></i></span>
                 </button>
-                <div class="cat-panel" id="panel-tally">
+                <div class="cat-panel" id="panel-pro">
                     <div class="cat-panel-inner">
                         <ul>
-                            <li><i class="fa-solid fa-circle-check"></i> Tally Prime</li>
-                            <li><i class="fa-solid fa-circle-check"></i> GST Filing &amp; Returns</li>
-                            <li><i class="fa-solid fa-circle-check"></i> Payroll Management</li>
-                            <li><i class="fa-solid fa-circle-check"></i> Inventory Management</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Stenography</li>
+                            <li><i class="fa-solid fa-circle-check"></i> SAP (FICO)</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Digital Marketing</li>
                         </ul>
-                        <a href="contact.html" class="cat-panel-link">Enquire about these courses <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="contact.html?course=Professional%20Courses" class="cat-panel-link">Enquire about these courses <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
 
-            <!-- Design -->
-            <div class="category-card reveal" id="cat-design">
-                <button class="cat-head" aria-expanded="false" aria-controls="panel-design">
+            <!-- Graphic Design -->
+            <div class="category-card reveal" id="cat-design" data-category="design">
+                <button type="button" class="cat-head" aria-expanded="false" aria-controls="panel-design">
                     <div class="cat-top">
                         <div class="cat-icon"><i class="fa-solid fa-palette"></i></div>
                         <span class="cat-count">4 Courses</span>
                     </div>
                     <h3>Graphic Design</h3>
-                    <p class="cat-desc">Visual design tools for print, social and video.</p>
-                    <button class="view-btn">View courses <i class="fa-solid fa-chevron-down"></i></button>
+                    <p class="cat-desc">Learn creative design for digital and print media.</p>
+                    <span class="view-btn">View courses <i class="fa-solid fa-chevron-down"></i></span>
                 </button>
                 <div class="cat-panel" id="panel-design">
                     <div class="cat-panel-inner">
@@ -176,39 +189,90 @@
                             <li><i class="fa-solid fa-circle-check"></i> CorelDRAW</li>
                             <li><i class="fa-solid fa-circle-check"></i> Adobe Illustrator</li>
                             <li><i class="fa-solid fa-circle-check"></i> PageMaker</li>
-                        
                         </ul>
-                        <a href="contact.html" class="cat-panel-link">Enquire about these courses <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="contact.html?course=Graphic%20Design" class="cat-panel-link">Enquire about these courses <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
 
-            <!-- Digital -->
-            <div class="category-card reveal" id="cat-marketing">
-                <button class="cat-head" aria-expanded="false" aria-controls="panel-marketing">
+            <!-- Office Courses -->
+            <div class="category-card reveal" id="cat-office" data-category="office">
+                <button type="button" class="cat-head" aria-expanded="false" aria-controls="panel-office">
                     <div class="cat-top">
-                        <div class="cat-icon"><i class="fa-solid fa-wrench"></i></div>
-                        <span class="cat-count">5 Courses</span>
+                        <div class="cat-icon"><i class="fa-solid fa-laptop"></i></div>
+                        <span class="cat-count">2 Courses</span>
                     </div>
-                    <h3>Hadrware & Networking</h3>
-                    <p class="cat-desc">Learn hardware and networking with hands-on training.</p>
-                    <button class="view-btn">View courses <i class="fa-solid fa-chevron-down"></i></button>
+                    <h3>Office Courses</h3>
+                    <p class="cat-desc">Master essential office applications and skills.</p>
+                    <span class="view-btn">View courses <i class="fa-solid fa-chevron-down"></i></span>
                 </button>
-                <div class="cat-panel" id="panel-marketing">
+                <div class="cat-panel" id="panel-office">
                     <div class="cat-panel-inner">
                         <ul>
-                            <li><i class="fa-solid fa-circle-check"></i> Basic Computer</li>
-                            <li><i class="fa-solid fa-circle-check"></i> Electronics</li>
-                            <li><i class="fa-solid fa-circle-check"></i> Assembling & Disassembling</li>
-                            <li><i class="fa-solid fa-circle-check"></i> Installations Of OS</li>
-                            <li><i class="fa-solid fa-circle-check"></i> Drivers & Applications</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Computer Basics</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Diploma in MS Office</li>
                         </ul>
-                        <a href="contact.html" class="cat-panel-link">Enquire about these courses <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="contact.html?course=Office%20Courses" class="cat-panel-link">Enquire about these courses <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
-         
- </section>
+
+            <!-- Tally With GST Courses -->
+            <div class="category-card reveal" id="cat-GST" data-category="tally">
+                <button type="button" class="cat-head" aria-expanded="false" aria-controls="panel-GST">
+                    <div class="cat-top">
+                        <div class="cat-icon"><i class="fa-solid fa-lines-leaning"></i></div>
+                        <span class="cat-count">3 Courses</span>
+                    </div>
+                    <h3>Tally With GST Courses</h3>
+                    <p class="cat-desc">Learn accounting, GST, invoicing, and Tally.</p>
+                    <span class="view-btn">View courses <i class="fa-solid fa-chevron-down"></i></span>
+                </button>
+                <div class="cat-panel" id="panel-GST">
+                    <div class="cat-panel-inner">
+                        <ul>
+                            <li><i class="fa-solid fa-circle-check"></i> Diploma In Tally</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Tally Professional</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Tally Expert</li>
+                        </ul>
+                        <a href="contact.html?course=Tally%20With%20GST" class="cat-panel-link">Enquire about these courses <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Job Oriented Courses -->
+            <div class="category-card reveal" id="cat-job" data-category="professional">
+                <button type="button" class="cat-head" aria-expanded="false" aria-controls="panel-job">
+                    <div class="cat-top">
+                        <div class="cat-icon"><i class="fa-solid fa-briefcase"></i></div>
+                        <span class="cat-count">3 Courses</span>
+                    </div>
+                    <h3>Job Oriented Courses</h3>
+                    <p class="cat-desc">Gain practical skills for workplace success.</p>
+                    <span class="view-btn">View courses <i class="fa-solid fa-chevron-down"></i></span>
+                </button>
+                <div class="cat-panel" id="panel-job">
+                    <div class="cat-panel-inner">
+                        <ul>
+                            <li><i class="fa-solid fa-circle-check"></i> Diploma In Computer Application</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Diploma In Computerized Financial Accounting</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Graphic Designing</li>
+                        </ul>
+                        <a href="contact.html?course=Job%20Oriented%20Courses" class="cat-panel-link">Enquire about these courses <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Empty Search Results State -->
+        <div class="courses-empty" id="coursesEmpty">
+            <i class="fa-solid fa-magnifying-glass" style="font-size:2rem;margin-bottom:12px;display:block;opacity:0.5;"></i>
+            No courses found matching your search. Try searching for "Excel", "Tally", "Python", or "Design".
+        </div>
+
+    </div>
+</section>
 <section class="specialized-section">
   <div class="container">
     <div class="specialized-box reveal">
@@ -231,7 +295,6 @@
             <li><i class="fa-solid fa-circle-check"></i> Stenography</li>
           </ul>
           <p class="specialized-desc">Comprehensive courses focused on office productivity, business operations and secretarial skills.</p>
-          <a href="contact.html" class="btn btn-outline">Explore HRDF Courses <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
         <div class="specialized-card">
@@ -244,7 +307,6 @@
             <li><i class="fa-solid fa-circle-check"></i> Certification in Illustrator</li>
           </ul>
           <p class="specialized-desc">Professional programs to build ICT skills, office management expertise and creative design capabilities.</p>
-          <a href="contact.html" class="btn btn-outline">Explore ITKC Programs <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
       </div>
@@ -300,22 +362,22 @@
       <div>
         <h5>Contact</h5>
         <ul class="footer-contact">
-          <li><i class="fa-solid fa-location-dot"></i> Main Market Road, Your City</li>
-          <li><i class="fa-solid fa-phone"></i> +91 98765 43210</li>
-          <li><i class="fa-solid fa-envelope"></i> comtechgoa@gmail.com</li>
+          <li><i class="fa-solid fa-location-dot"></i> T1, 3rd Floor, Royal Chambers, Above HDFC Bank, Tisk-Ponda, Goa</li>
+          <li><i class="fa-solid fa-phone"></i> +91 98235 69169</li>
+          <li><i class="fa-solid fa-envelope"></i> comtechponda@gmail.com</li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
       <span>&copy; <span id="year"></span> Comtech Computer Academy. All rights reserved.</span>
-      <span><a href="#">Privacy policy</a> &middot; <a href="#">Terms</a></span>
+      <span><a href="privacy.html">Privacy policy</a> &middot; <a href="terms.html">Terms</a></span>
     </div>
   </div>
 </footer>
 
 <div class="toast" id="toast"><i class="fa-solid fa-circle-check"></i><span>Note downloaded</span></div>
-<a href="https://wa.me/919876543210?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20courses." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+<a href="https://wa.me/9823569169?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20courses." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
   <i class="fa-brands fa-whatsapp"></i>
   <span class="wa-tip">Chat with us</span>
 </a>

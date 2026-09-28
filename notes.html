@@ -37,57 +37,47 @@
     <div class="breadcrumb"><a href="index.html">Home</a> <i class="fa-solid fa-chevron-right"></i> Notes</div>
     <div class="section-tag">Notes library</div>
     <h1>Download class notes, anytime.</h1>
-    <p>Notes are added after every session. Filter by course and download the ones you need — no login required.</p>
+    <p>All syllabus notes, lecture summaries, and practice files are updated regularly in our Google Drive folder — free and open for everyone.</p>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <div class="notes-toolbar reveal" id="notesToolbar">
-      <div class="filter-chip active" data-filter="all">All notes</div>
-      <div class="filter-chip" data-filter="gws">Google Workspace</div>
-      <div class="filter-chip" data-filter="excel">MS Excel</div>
-      <div class="filter-chip" data-filter="tally">Tally Prime</div>
+    <!-- Public Google Drive Library Banner -->
+    <div class="drive-banner reveal">
+      <div class="drive-banner-left">
+        <div class="drive-icon"><i class="fa-brands fa-google-drive"></i></div>
+        <div>
+          <h3>Public Google Drive Notes Library</h3>
+          <p>Access and download all syllabus notes, class PDFs, and practice spreadsheets directly from our shared Google Drive folder.</p>
+        </div>
+      </div>
+      <a href="https://drive.google.com/drive/folders/1W15raF4e-r8LFuF8MI6aiowHl0REnuEO?usp=sharing" target="_blank" rel="noopener" class="btn btn-primary" style="white-space:nowrap;">
+        <i class="fa-brands fa-google-drive"></i> Open Drive Folder <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.8em;"></i>
+      </a>
     </div>
 
-    <div class="notes-list" id="notesList">
-      <div class="note-row reveal" data-course="gws">
-        <div class="note-left"><div class="note-icon">GWS</div><div><div class="note-title">Docs &amp; Sheets — Getting Started</div><div class="note-sub">Module 1 &middot; PDF-ready notes</div></div></div>
-        <button class="btn btn-primary" onclick="downloadNote('Google Workspace - Module 1 - Docs and Sheets Getting Started')"><i class="fa-solid fa-download"></i> Download</button>
+    <!-- Notes Features / Guide Grid -->
+    <div class="why-grid" style="margin-top: 32px;">
+      <div class="why-card reveal">
+        <div class="why-icon"><i class="fa-solid fa-folder-open"></i></div>
+        <h4>Organized by Course</h4>
+        <p>Folders for Google Workspace, MS Excel, Tally Prime with GST, and Programming.</p>
       </div>
-      <div class="note-row reveal" data-course="gws">
-        <div class="note-left"><div class="note-icon">GWS</div><div><div class="note-title">Shared Drives &amp; Permissions</div><div class="note-sub">Module 2 &middot; PDF-ready notes</div></div></div>
-        <button class="btn btn-primary" onclick="downloadNote('Google Workspace - Module 2 - Shared Drives and Permissions')"><i class="fa-solid fa-download"></i> Download</button>
+      <div class="why-card reveal">
+        <div class="why-icon"><i class="fa-solid fa-file-pdf"></i></div>
+        <h4>PDF &amp; Spreadsheets</h4>
+        <p>Download lecture cheat-sheets, step-by-step guides, and practical exercise files.</p>
       </div>
-      <div class="note-row reveal" data-course="gws">
-        <div class="note-left"><div class="note-icon">GWS</div><div><div class="note-title">Forms, Slides &amp; Calendar</div><div class="note-sub">Module 3 &middot; PDF-ready notes</div></div></div>
-        <button class="btn btn-primary" onclick="downloadNote('Google Workspace - Module 3 - Forms Slides and Calendar')"><i class="fa-solid fa-download"></i> Download</button>
+      <div class="why-card reveal">
+        <div class="why-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+        <h4>Same-Day Uploads</h4>
+        <p>Fresh notes and class summaries uploaded directly following each classroom session.</p>
       </div>
-
-      <div class="note-row reveal" data-course="excel">
-        <div class="note-left"><div class="note-icon">EXL</div><div><div class="note-title">Formulas &amp; Functions Cheat Sheet</div><div class="note-sub">Module 1 &middot; PDF-ready notes</div></div></div>
-        <button class="btn btn-primary" onclick="downloadNote('MS Excel - Module 1 - Formulas and Functions Cheat Sheet')"><i class="fa-solid fa-download"></i> Download</button>
-      </div>
-      <div class="note-row reveal" data-course="excel">
-        <div class="note-left"><div class="note-icon">EXL</div><div><div class="note-title">Pivot Tables &amp; Charts</div><div class="note-sub">Module 2 &middot; PDF-ready notes</div></div></div>
-        <button class="btn btn-primary" onclick="downloadNote('MS Excel - Module 2 - Pivot Tables and Charts')"><i class="fa-solid fa-download"></i> Download</button>
-      </div>
-      <div class="note-row reveal" data-course="excel">
-        <div class="note-left"><div class="note-icon">EXL</div><div><div class="note-title">Dashboards &amp; XLOOKUP</div><div class="note-sub">Module 3 &middot; PDF-ready notes</div></div></div>
-        <button class="btn btn-primary" onclick="downloadNote('MS Excel - Module 3 - Dashboards and XLOOKUP')"><i class="fa-solid fa-download"></i> Download</button>
-      </div>
-
-      <div class="note-row reveal" data-course="tally">
-        <div class="note-left"><div class="note-icon">TLY</div><div><div class="note-title">Company &amp; Ledger Setup</div><div class="note-sub">Module 1 &middot; PDF-ready notes</div></div></div>
-        <button class="btn btn-primary" onclick="downloadNote('Tally Prime - Module 1 - Company and Ledger Setup')"><i class="fa-solid fa-download"></i> Download</button>
-      </div>
-      <div class="note-row reveal" data-course="tally">
-        <div class="note-left"><div class="note-icon">TLY</div><div><div class="note-title">Vouchers, Invoicing &amp; Inventory</div><div class="note-sub">Module 2 &middot; PDF-ready notes</div></div></div>
-        <button class="btn btn-primary" onclick="downloadNote('Tally Prime - Module 2 - Vouchers Invoicing and Inventory')"><i class="fa-solid fa-download"></i> Download</button>
-      </div>
-      <div class="note-row reveal" data-course="tally">
-        <div class="note-left"><div class="note-icon">TLY</div><div><div class="note-title">GST Reports &amp; Return Filing</div><div class="note-sub">Module 3 &middot; PDF-ready notes</div></div></div>
-        <button class="btn btn-primary" onclick="downloadNote('Tally Prime - Module 3 - GST Reports and Return Filing')"><i class="fa-solid fa-download"></i> Download</button>
+      <div class="why-card reveal">
+        <div class="why-icon"><i class="fa-solid fa-unlock"></i></div>
+        <h4>Free &amp; Open Access</h4>
+        <p>No login or password needed. Open the drive folder anytime from any device.</p>
       </div>
     </div>
   </div>
@@ -135,22 +125,22 @@
       <div>
         <h5>Contact</h5>
         <ul class="footer-contact">
-          <li><i class="fa-solid fa-location-dot"></i> Main Market Road, Your City</li>
-          <li><i class="fa-solid fa-phone"></i> +91 98765 43210</li>
-          <li><i class="fa-solid fa-envelope"></i> info@comtechacademy.in</li>
+          <li><i class="fa-solid fa-location-dot"></i> T1, 3rd Floor, Royal Chambers, Above HDFC Bank, Tisk-Ponda, Goa</li>
+          <li><i class="fa-solid fa-phone"></i> +91 98235 69169</li>
+          <li><i class="fa-solid fa-envelope"></i> comtechponda@gmail.com</li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
       <span>&copy; <span id="year"></span> Comtech Computer Academy. All rights reserved.</span>
-      <span><a href="#">Privacy policy</a> &middot; <a href="#">Terms</a></span>
+      <span><a href="privacy.html">Privacy policy</a> &middot; <a href="terms.html">Terms</a></span>
     </div>
   </div>
 </footer>
 
 <div class="toast" id="toast"><i class="fa-solid fa-circle-check"></i><span>Note downloaded</span></div>
-<a href="https://wa.me/919876543210?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20courses." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+<a href="https://wa.me/9823569169?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20courses." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
   <i class="fa-brands fa-whatsapp"></i>
   <span class="wa-tip">Chat with us</span>
 </a>

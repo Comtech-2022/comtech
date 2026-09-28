@@ -31,9 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Notes filter (only present on notes.html)
-  const chips = document.querySelectorAll('.filter-chip');
-  const rows = document.querySelectorAll('.note-row');
-  if (chips.length) {
+  const notesToolbar = document.getElementById('notesToolbar');
+  if (notesToolbar) {
+    const chips = notesToolbar.querySelectorAll('.filter-chip');
+    const rows = document.querySelectorAll('.note-row');
     chips.forEach(chip => {
       chip.addEventListener('click', () => {
         chips.forEach(c => c.classList.remove('active'));
@@ -49,24 +50,88 @@ document.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams(window.location.search);
     const wanted = params.get('course');
     if (wanted) {
-      const chip = document.querySelector(`.filter-chip[data-filter="${wanted}"]`);
+      const chip = notesToolbar.querySelector(`.filter-chip[data-filter="${wanted}"]`);
       if (chip) chip.click();
     }
   }
 
-  // Contact form
+  // Pre-fill course enquiry field if ?course=xxx is passed in URL
+  const courseInput = document.getElementById('fcourse');
+  if (courseInput) {
+    const params = new URLSearchParams(window.location.search);
+    const prefillCourse = params.get('course') || params.get('interest');
+    if (prefillCourse) {
+      courseInput.value = decodeURIComponent(prefillCourse);
+    }
+  }
+
+  // Contact form submission to comtechponda@gmail.com
   const enquireForm = document.querySelector('form.enquire');
   if (enquireForm) {
-    enquireForm.addEventListener('submit', (e) => {
+    enquireForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      showToast('Thanks! Your enquiry has been noted. We will call you back soon.', 'fa-solid fa-circle-check');
-      enquireForm.reset();
+      const phoneInput = document.getElementById('fphone');
+      if (phoneInput && phoneInput.value && !/^\d{10}$/.test(phoneInput.value.replace(/\s+/g, ''))) {
+        showToast('Please enter a valid 10-digit phone number.', 'fa-solid fa-circle-exclamation');
+        phoneInput.focus();
+        return;
+      }
+
+      const submitBtn = document.getElementById('submitBtn') || enquireForm.querySelector('button[type="submit"]');
+      const originalBtnHtml = submitBtn ? submitBtn.innerHTML : 'Send enquiry <i class="fa-solid fa-paper-plane"></i>';
+
+      // Check if browsing directly via file:// protocol
+      if (window.location.protocol === 'file:') {
+        showToast('Form submission requires a web server (http://localhost or live hosted site).', 'fa-solid fa-circle-exclamation');
+        alert('Local File Notice:\n\nYou are viewing this page as a local file (file:///). Online form services (FormSubmit) block direct local file paths for browser security.\n\nTo test live email sending on your computer:\n1. Run: python -m http.server 8000\n2. Open: http://localhost:8000/contact.html\n\n(Once hosted on your live website domain or Google hosting, it will work automatically!)');
+        return;
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Sending enquiry... <i class="fa-solid fa-circle-notch fa-spin"></i>';
+      }
+
+      const formData = new FormData(enquireForm);
+      const data = {};
+      formData.forEach((value, key) => { data[key] = value; });
+
+      // Get target action email dynamically from form action
+      const formAction = enquireForm.getAttribute('action') || 'https://formsubmit.co/ajax/comtechponda@gmail.com';
+      const ajaxEndpoint = formAction.includes('/ajax/') ? formAction : formAction.replace('formsubmit.co/', 'formsubmit.co/ajax/');
+
+      try {
+        const response = await fetch(ajaxEndpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (response.ok && (result.success === 'true' || result.success === true)) {
+          showToast('Enquiry sent! We received your request and will contact you soon.', 'fa-solid fa-circle-check');
+          enquireForm.reset();
+        } else {
+          enquireForm.submit();
+        }
+      } catch (err) {
+        console.warn('AJAX submit failed, submitting standard form fallback:', err);
+        enquireForm.submit();
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnHtml;
+        }
+      }
     });
   }
 
   initScrollReveal();
   initStatCounters();
-  initFaqAccordion();
   initHeroCarousel();
   initCourseCategories();
 });
@@ -115,14 +180,19 @@ function initHeroCarousel() {
   startAuto();
 }
 
-// ---------- Courses page: category accordion + search ----------
+// ---------- Courses page: category accordion + search + filter chips ----------
 function initCourseCategories() {
   const grid = document.getElementById('coursesGrid');
   if (!grid) return;
 
   const cards = grid.querySelectorAll('.category-card');
   const emptyState = document.getElementById('coursesEmpty');
+  const filterChips = document.querySelectorAll('.course-filter-chips .filter-chip');
+  const search = document.getElementById('courseSearch');
 
+  let activeCategory = 'all';
+
+  // Toggle card accordion
   cards.forEach(card => {
     const head = card.querySelector('.cat-head');
     if (!head) return;
@@ -132,7 +202,7 @@ function initCourseCategories() {
     });
   });
 
-  // Open a category automatically if the page was reached via a #cat-xxx link
+  // Open a category automatically if reached via #cat-xxx link
   if (window.location.hash) {
     const target = document.querySelector(window.location.hash);
     if (target && target.classList.contains('category-card')) {
@@ -143,40 +213,72 @@ function initCourseCategories() {
     }
   }
 
-  const search = document.getElementById('courseSearch');
-  if (!search) return;
-
-  search.addEventListener('input', () => {
-    const query = search.value.trim().toLowerCase();
+  function filterCourses() {
+    const query = search ? search.value.trim().toLowerCase() : '';
     let anyVisible = false;
 
     cards.forEach(card => {
+      const cardCategory = card.dataset.category || '';
+      const matchesCategory = activeCategory === 'all' || cardCategory.includes(activeCategory);
+
+      if (!matchesCategory && query === '') {
+        card.style.display = 'none';
+        return;
+      }
+
       const title = card.querySelector('h3').textContent.toLowerCase();
       const items = card.querySelectorAll('.cat-panel li');
-      let categoryMatches = query === '' || title.includes(query);
+      let itemMatchCount = 0;
 
       items.forEach(li => {
         const text = li.textContent.toLowerCase();
-        const itemMatches = query === '' || text.includes(query);
-        li.style.display = itemMatches ? '' : 'none';
-        if (itemMatches) categoryMatches = true;
+        const matchesQuery = query === '' || text.includes(query);
+        li.style.display = matchesQuery ? '' : 'none';
+        if (matchesQuery) itemMatchCount++;
       });
 
-      card.style.display = categoryMatches ? '' : 'none';
-      if (categoryMatches) anyVisible = true;
+      const categoryTitleMatches = query === '' || title.includes(query);
+      const hasQueryMatch = query === '' ? matchesCategory : (categoryTitleMatches || itemMatchCount > 0);
+
+      const isVisible = query !== '' ? hasQueryMatch : matchesCategory;
+      card.style.display = isVisible ? '' : 'none';
+      if (isVisible) anyVisible = true;
 
       const head = card.querySelector('.cat-head');
-      if (query !== '' && categoryMatches) {
+      if (query !== '' && isVisible) {
         card.classList.add('open');
         if (head) head.setAttribute('aria-expanded', 'true');
-      } else if (query === '') {
-        card.classList.remove('open');
-        if (head) head.setAttribute('aria-expanded', 'false');
       }
     });
 
     if (emptyState) emptyState.style.display = anyVisible ? 'none' : 'block';
-  });
+  }
+
+  // Category filter chips
+  if (filterChips.length) {
+    filterChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        filterChips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        activeCategory = chip.dataset.filter || 'all';
+        if (search) search.value = '';
+        filterCourses();
+      });
+    });
+  }
+
+  // Search input
+  if (search) {
+    search.addEventListener('input', () => {
+      if (search.value.trim() !== '') {
+        filterChips.forEach(c => c.classList.remove('active'));
+        const allChip = document.querySelector('.course-filter-chips .filter-chip[data-filter="all"]');
+        if (allChip) allChip.classList.add('active');
+        activeCategory = 'all';
+      }
+      filterCourses();
+    });
+  }
 }
 
 // ---------- Scroll-triggered reveal animations ----------
@@ -196,9 +298,16 @@ function initScrollReveal() {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.01, rootMargin: '0px 0px 40px 0px' });
 
-  targets.forEach(el => observer.observe(el));
+  targets.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      el.classList.add('in-view');
+    } else {
+      observer.observe(el);
+    }
+  });
 }
 
 // ---------- Animated stat counters (stats banner) ----------
@@ -241,27 +350,11 @@ function initStatCounters() {
 
 
 
-// ---------- Download a sample note (demo content until real PDFs are uploaded) ----------
+// ---------- Open Google Drive notes folder ----------
 function downloadNote(title) {
-  const content =
-`COMTECH COMPUTER ACADEMY
--------------------------
-${title}
-
-These are sample notes generated for demonstration.
-Replace this file with the actual class PDF notes for students to download.
-
-Thank you for learning with Comtech Computer Academy.`;
-  const blob = new Blob([content], { type: 'text/plain' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = title.replace(/\s+/g, '_') + '.txt';
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
-  showToast('Downloaded: ' + title, 'fa-solid fa-download');
+  const driveUrl = 'https://drive.google.com/drive/folders/1W15raF4e-r8LFuF8MI6aiowHl0REnuEO?usp=sharing';
+  window.open(driveUrl, '_blank', 'noopener,noreferrer');
+  showToast('Opening Google Drive Notes Library...', 'fa-brands fa-google-drive');
 }
 
 // ---------- Toast ----------
@@ -274,19 +367,3 @@ function showToast(msg, iconClass) {
   clearTimeout(window._toastTimer);
   window._toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
 }
-
-//Courses
-document.querySelectorAll(".view-btn").forEach(btn => {
-    btn.addEventListener("click", function () {
-
-        const card = this.closest(".category-card");
-
-        card.classList.toggle("open");
-
-        this.textContent =
-            card.classList.contains("open")
-            ? "Hide Courses"
-            : "View Courses";
-
-    });
-});

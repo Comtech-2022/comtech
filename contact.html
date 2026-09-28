@@ -23,7 +23,7 @@
       <a href="contact.html">Contact</a>
     </nav>
     <div class="nav-cta">
-      <a href="contact.html" class="btn btn-outline" style="padding:10px 20px;font-size:0.88rem;">Enquire <i class="fa-solid fa-arrow-right" style="font-size:0.8em;"></i></a>
+      <a href="#enquire" class="btn btn-outline" style="padding:10px 20px;font-size:0.88rem;">Enquire <i class="fa-solid fa-arrow-right" style="font-size:0.8em;"></i></a>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -50,25 +50,70 @@
           <h3>Visit or reach out</h3>
           <p>We usually reply within one business day.</p>
           <div class="info-row"><div class="ico"><i class="fa-solid fa-location-dot"></i></div><div><strong>Address</strong><span>T1, 3rd Floor, Royal Chambers, Above HDFC Bank, Tisk-Ponda, Goa</span></div></div>
-          <div class="info-row"><div class="ico"><i class="fa-solid fa-phone"></i></div><div><strong>Phone</strong><span>+91 98765 43210</span></div></div>
-          <div class="info-row"><div class="ico"><i class="fa-solid fa-envelope"></i></div><div><strong>Email</strong><span>comtechgoa@gmail.com</span></div></div>
+          <div class="info-row"><div class="ico"><i class="fa-solid fa-phone"></i></div><div><strong>Phone</strong><span><a href="tel:+919823569169">+91 98235 69169</a></span></div></div>
+          <div class="info-row"><div class="ico"><i class="fa-solid fa-envelope"></i></div><div><strong>Email</strong><span><a href="mailto:comtechponda@gmail.com">comtechponda@gmail.com</a></span></div></div>
           <div class="info-row"><div class="ico"><i class="fa-solid fa-clock"></i></div><div><strong>Hours</strong><span>Mon &ndash; Sat, 9:00 AM &ndash; 7:00 PM</span></div></div>
         </div>
-        <div class="map-embed"><i class="fa-solid fa-map-location-dot"></i>&nbsp; <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d30772.96787153802!2d73.99968065!3d15.39699965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x3bbfba971c7bd565%3A0xa9f4455e070b505f!2sComtech%20Computer%20Academy%2C%20T-1%2C%203rd%20Floor%2C%20Above%20HDFC%20Bank%2C%20Tiska%2C%20Durgabhat%2C%20Ponda%2C%20Goa%20403401!3m2!1d15.395055999999999!2d74.002644!5e0!3m2!1sen!2sin!4v1784630110621!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <div class="map-embed">
+          <iframe
+            src="https://www.google.com/maps/d/u/0/embed?mid=1Ui_vUfsX95jebKAl41AXQqB4y-TOGSs&ehbc=2E312F&noprof=1"
+            title="Comtech Computer Academy location map"
+            style="border:0;"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin">
+          </iframe>
+        </div>
       </div>
 
-      <form class="enquire reveal">
+      <form class="enquire reveal" id="enquire" action="https://formsubmit.co/mistrysaish@gmail.com" method="POST">
+        <!-- FormSubmit Email Configuration -->
+        <input type="hidden" name="_subject" value="New Course Enquiry — Comtech Computer Academy Website">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+
         <div class="form-two">
-          <div class="form-row"><label for="fname">Full name</label><input type="text" id="fname" placeholder="Your name" required></div>
-          <div class="form-row"><label for="fphone">Phone number</label><input type="tel" id="fphone" placeholder="10-digit number" required></div>
+          <div class="form-row">
+            <label for="fname">Full name</label>
+            <input type="text" id="fname" name="Full Name" placeholder="Your name" autocomplete="name" required>
+          </div>
+          <div class="form-row">
+            <label for="fphone">Phone number</label>
+            <input type="tel" id="fphone" name="Phone Number" placeholder="10-digit number" autocomplete="tel" pattern="[0-9]{10}" maxlength="10" title="Please enter a valid 10-digit mobile number" required>
+          </div>
         </div>
         <div class="form-row">
           <label for="fcourse">Course you're interested in</label>
-          <input type="text" id="fcourse" placeholder="Course Name" required>
-        
+          <input type="text" id="fcourse" name="Interested Course" placeholder="e.g. MS Excel, Tally Prime, Python" list="courseOptions" required>
+          <datalist id="courseOptions">
+            <option value="Google Workspace"></option>
+            <option value="MS Word"></option>
+            <option value="MS Excel"></option>
+            <option value="MS PowerPoint"></option>
+            <option value="MS Access"></option>
+            <option value="Diploma in MS Office"></option>
+            <option value="C & C++ Programming"></option>
+            <option value="Java Programming"></option>
+            <option value="Python Programming"></option>
+            <option value="Web Page Designing"></option>
+            <option value="PHP & MySQL"></option>
+            <option value="WordPress Development"></option>
+            <option value="Diploma in Tally"></option>
+            <option value="Tally Professional"></option>
+            <option value="Tally Expert"></option>
+            <option value="Photoshop"></option>
+            <option value="CorelDRAW"></option>
+            <option value="Adobe Illustrator"></option>
+            <option value="Stenography"></option>
+            <option value="SAP (FICO)"></option>
+            <option value="Digital Marketing"></option>
+          </datalist>
         </div>
-        <div class="form-row"><label for="fmsg">Message</label><textarea id="fmsg" rows="10" placeholder="Tell us a bit about your goals or preferred timing"></textarea></div>
-        <button type="submit" class="btn btn-primary">Send enquiry <i class="fa-solid fa-paper-plane"></i></button>
+        <div class="form-row">
+          <label for="fmsg">Message</label>
+          <textarea id="fmsg" name="Message" rows="5" placeholder="Tell us a bit about your goals or preferred timing"></textarea>
+        </div>
+        <button type="submit" id="submitBtn" class="btn btn-primary">Send enquiry <i class="fa-solid fa-paper-plane"></i></button>
         <p class="form-note">We usually reply within one business day.</p>
       </form>
     </div>
@@ -87,9 +132,9 @@
         </div>
         <p style="font-size:0.92rem;line-height:1.7;color:rgba(255,255,255,0.6);max-width:320px;">A practical computer training academy teaching Google Workspace, MS Excel and Tally Prime — small batches, real exercises, notes for every class.</p>
         <div class="footer-social">
-          <a href="https://www.facebook.com/ComtechComputerAcademy" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/comtech_ponda" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://www.youtube.com/@ComtechGOA" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.facebook.com/ComtechComputerAcademy" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/comtech_ponda" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@ComtechGOA" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
         </div>
       </div>
 
@@ -117,21 +162,21 @@
         <h5>Contact</h5>
         <ul class="footer-contact">
           <li><i class="fa-solid fa-location-dot"></i> T1, 3rd Floor, Royal Chambers, Above HDFC Bank, Tisk-Ponda, Goa</li>
-          <li><i class="fa-solid fa-phone"></i> +91 98765 43210</li>
-          <li><i class="fa-solid fa-envelope"></i> comtechgoa@gmail.com</li>
+          <li><i class="fa-solid fa-phone"></i> <a href="tel:+919823569169">+91 98235 69169</a></li>
+          <li><i class="fa-solid fa-envelope"></i> <a href="mailto:comtechponda@gmail.com">comtechponda@gmail.com</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
       <span>&copy; <span id="year"></span> Comtech Computer Academy. All rights reserved.</span>
-      <span><a href="#">Privacy policy</a> &middot; <a href="#">Terms</a></span>
+      <span><a href="privacy.html">Privacy policy</a> &middot; <a href="terms.html">Terms</a></span>
     </div>
   </div>
 </footer>
 
-<div class="toast" id="toast"><i class="fa-solid fa-circle-check"></i><span>Note downloaded</span></div>
-<a href="https://wa.me/919876543210?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20courses." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+<div class="toast" id="toast"><i class="fa-solid fa-circle-check"></i><span>Enquiry sent successfully</span></div>
+<a href="https://wa.me/9823569169?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20courses." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
   <i class="fa-brands fa-whatsapp"></i>
   <span class="wa-tip">Chat with us</span>
 </a>
