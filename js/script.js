@@ -134,6 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initStatCounters();
   initHeroCarousel();
   initCourseCategories();
+  initBranchMap();
 });
 
 // ---------- Home hero carousel ----------
@@ -367,3 +368,60 @@ function showToast(msg, iconClass) {
   clearTimeout(window._toastTimer);
   window._toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
 }
+
+// ---------- Interactive Branch Map Switcher (contact.html) ----------
+function initBranchMap() {
+  const mapTabs = document.querySelectorAll('.map-branch-tabs .map-tab');
+  const iframe = document.getElementById('branchMapIframe');
+  const titleEl = document.getElementById('activeBranchTitle');
+  const addrEl = document.getElementById('activeBranchAddress');
+  const dirBtn = document.getElementById('mapDirectionsBtn');
+
+  if (!mapTabs.length || !iframe) return;
+
+  const branchData = {
+    main: {
+      title: 'Tisk-Ponda (Main Center)',
+      address: 'T1, 3rd Floor, Royal Chambers, Above HDFC Bank, Tisk-Ponda, Goa',
+      embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3846.6569173864814!2d74.00006907415172!3d15.395055985190945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfba971c7bd565%3A0xa9f4455e070b505f!2sComtech%20Computer%20Academy!5e0!3m2!1sen!2sin!4v1790765768960!5m2!1sen!2sin',
+      directionsUrl: 'https://www.google.com/maps/place/Comtech+Computer+Academy/@15.395056,74.0000691,17z/data=!3m1!4b1!4m6!3m5!1s0x3bbfba971c7bd565:0xa9f4455e070b505f!8m2!3d15.395056!4d74.002644!16s%2Fg%2F11b6d05pkm'
+    },
+    ponda: {
+      title: 'Ponda Branch (Dr. Lourenco Almeida Complex / Sadar)',
+      address: 'DS-7, Dr. Lourenco Almeida Complex, Ponda-Goa',
+      embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1696.2927306887111!2d74.00526609255947!3d15.399831920772721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfbb000546538f%3A0xe994eecad991909c!2sComtech%20Main%20Centre%20Sadar!5e0!3m2!1sen!2sin!4v1790765730212!5m2!1sen!2sin',
+      directionsUrl: 'https://www.google.com/maps/place/Comtech+Main+Centre+Sadar/@15.3998319,74.0052661,18z/data=!3m1!4b1!4m6!3m5!1s0x3bbfbb000546538f:0xe994eecad991909c!8m2!3d15.3998319!4d74.006358!16s%2Fg%2F11t7g38j8r'
+    },
+    majorda: {
+      title: 'Majorda Branch (Salcete)',
+      address: 'Igreja Ward, Majorda, Salcete-Goa',
+      embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3848.1188057444488!2d73.91344437325643!3d15.315777347253007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfb6c4e633c125%3A0xeb9ca36a32f78df6!2sComtech%20Computer%20Academy!5e0!3m2!1sen!2sin!4v1790765662388!5m2!1sen!2sin',
+      directionsUrl: 'https://www.google.com/maps/place/Comtech+Computer+Academy/@15.3157773,73.9134444,17z/data=!3m1!4b1!4m6!3m5!1s0x3bbfb6c4e633c125:0xeb9ca36a32f78df6!8m2!3d15.3157773!4d73.9160193!16s%2Fg%2F11b6d05pkn'
+    }
+  };
+
+  mapTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const branchKey = tab.dataset.branch;
+      const data = branchData[branchKey];
+      if (!data) return;
+
+      mapTabs.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+
+      if (titleEl) titleEl.textContent = data.title;
+      if (addrEl) addrEl.innerHTML = `<i class="fa-solid fa-map-pin"></i> ${data.address}`;
+      if (dirBtn) dirBtn.href = data.directionsUrl;
+      if (iframe) {
+        iframe.style.opacity = '0.5';
+        iframe.src = data.embedSrc;
+        iframe.onload = () => { iframe.style.opacity = '1'; };
+      }
+    });
+  });
+}
+

@@ -49,24 +49,85 @@
           <div class="ring"></div>
           <h3>Visit or reach out</h3>
           <p>We usually reply within one business day.</p>
-          <div class="info-row"><div class="ico"><i class="fa-solid fa-location-dot"></i></div><div><strong>Address</strong><span>T1, 3rd Floor, Royal Chambers, Above HDFC Bank, Tisk-Ponda, Goa</span></div></div>
-          <div class="info-row"><div class="ico"><i class="fa-solid fa-phone"></i></div><div><strong>Phone</strong><span><a href="tel:+919823569169">+91 98235 69169</a></span></div></div>
-          <div class="info-row"><div class="ico"><i class="fa-solid fa-envelope"></i></div><div><strong>Email</strong><span><a href="mailto:comtechponda@gmail.com">comtechponda@gmail.com</a></span></div></div>
-          <div class="info-row"><div class="ico"><i class="fa-solid fa-clock"></i></div><div><strong>Hours</strong><span>Mon &ndash; Sat, 9:00 AM &ndash; 7:00 PM</span></div></div>
+          <div class="info-row">
+            <div class="ico"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <strong>Tisk-Ponda</strong>
+              <span>T1, 3rd Floor, Royal Chambers, Above HDFC Bank, Tisk-Ponda, Goa</span>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="ico"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <strong>Ponda Branch</strong>
+              <span>DS-7, Dr. Lourenco Almeida Complex, Ponda-Goa</span>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="ico"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <strong>Majorda Branch</strong>
+              <span>Igreja Ward, Majorda, Salcete-Goa</span>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="ico"><i class="fa-solid fa-phone"></i></div>
+            <div>
+              <strong>Phone</strong>
+              <span><a href="tel:+919823569169">+91 98235 69169</a> &nbsp;|&nbsp; <a href="tel:+917798929109">+91 77989 29109</a></span>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="ico"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <strong>Email</strong>
+              <span><a href="mailto:comtechponda@gmail.com">comtechponda@gmail.com</a></span>
+            </div>
+          </div>
+          
         </div>
-        <div class="map-embed">
-          <iframe
-            src="https://www.google.com/maps/d/u/0/embed?mid=1Ui_vUfsX95jebKAl41AXQqB4y-TOGSs&ehbc=2E312F&noprof=1"
-            title="Comtech Computer Academy location map"
-            style="border:0;"
-            allowfullscreen
-            loading="lazy"
-            referrerpolicy="strict-origin-when-cross-origin">
-          </iframe>
+        
+        <!-- Enhanced Interactive Location Map Card -->
+        <div class="map-card-wrapper">
+          <div class="map-card-header">
+            <div class="map-header-left">
+              <span class="map-badge"><i class="fa-solid fa-location-crosshairs"></i> Interactive Map</span>
+              <h4 id="activeBranchTitle">Tisk-Ponda (Main Center)</h4>
+              <p id="activeBranchAddress" class="map-active-addr"><i class="fa-solid fa-map-pin"></i> T1, 3rd Floor, Royal Chambers, Above HDFC Bank, Tisk-Ponda, Goa</p>
+            </div>
+            <a id="mapDirectionsBtn" href="https://www.google.com/maps/place/Comtech+Computer+Academy/@15.395056,74.0000691,17z/data=!3m1!4b1!4m6!3m5!1s0x3bbfba971c7bd565:0xa9f4455e070b505f!8m2!3d15.395056!4d74.002644!16s%2Fg%2F11b6d05pkm" target="_blank" rel="noopener" class="btn btn-directions">
+              <i class="fa-solid fa-diamond-turn-right"></i> Get Directions
+            </a>
+          </div>
+
+          <!-- Branch Selection Tabs -->
+          <div class="map-branch-tabs" role="tablist" aria-label="Branch Locations">
+            <button type="button" class="map-tab active" data-branch="main" role="tab" aria-selected="true">
+              <i class="fa-solid fa-building"></i> Tisk-Ponda
+            </button>
+            <button type="button" class="map-tab" data-branch="ponda" role="tab" aria-selected="false">
+              <i class="fa-solid fa-store"></i> Almeida Complex
+            </button>
+            <button type="button" class="map-tab" data-branch="majorda" role="tab" aria-selected="false">
+              <i class="fa-solid fa-church"></i> Majorda Branch
+            </button>
+          </div>
+
+          <div class="map-embed">
+            <iframe
+              id="branchMapIframe"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3846.6569173864814!2d74.00006907415172!3d15.395055985190945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfba971c7bd565%3A0xa9f4455e070b505f!2sComtech%20Computer%20Academy!5e0!3m2!1sen!2sin!4v1790765768960!5m2!1sen!2sin"
+              title="Comtech Computer Academy location map"
+              style="border:0;"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
+          </div>
         </div>
       </div>
 
-      <form class="enquire reveal" id="enquire" action="https://formsubmit.co/mistrysaish@gmail.com" method="POST">
+      <form class="enquire reveal" id="enquire" action="https://formsubmit.co/comtechponda@gmail.com" method="POST">
         <!-- FormSubmit Email Configuration -->
         <input type="hidden" name="_subject" value="New Course Enquiry — Comtech Computer Academy Website">
         <input type="hidden" name="_template" value="table">
@@ -159,11 +220,41 @@
       </div>
 
       <div>
-        <h5>Contact</h5>
+        <h5>Our Branches</h5>
         <ul class="footer-contact">
-          <li><i class="fa-solid fa-location-dot"></i> T1, 3rd Floor, Royal Chambers, Above HDFC Bank, Tisk-Ponda, Goa</li>
-          <li><i class="fa-solid fa-phone"></i> <a href="tel:+919823569169">+91 98235 69169</a></li>
-          <li><i class="fa-solid fa-envelope"></i> <a href="mailto:comtechponda@gmail.com">comtechponda@gmail.com</a></li>
+          <li>
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+              <strong class="branch-name">Tisk-Ponda </strong>
+              <span>T1, 3rd Floor, Royal Chambers, Above HDFC Bank, Tisk-Ponda, Goa</span>
+            </div>
+          </li>
+          <li>
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+              <strong class="branch-name">Ponda Branch</strong>
+              <span>DS-7, Dr. Lourenco Almeida Complex, Ponda-Goa</span>
+            </div>
+          </li>
+          <li>
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+              <strong class="branch-name">Majorda Branch</strong>
+              <span>Igreja Ward, Majorda, Salcete-Goa</span>
+            </div>
+          </li>
+          <li>
+            <i class="fa-solid fa-phone"></i>
+            <div>
+              <a href="tel:+919823569169">+91 98235 69169</a> &nbsp;|&nbsp; <a href="tel:+917798929109">+91 77989 29109</a>
+            </div>
+          </li>
+          <li>
+            <i class="fa-solid fa-envelope"></i>
+            <div>
+              <a href="mailto:comtechponda@gmail.com">comtechponda@gmail.com</a>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
