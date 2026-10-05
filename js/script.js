@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', toggleScrolled, { passive: true });
   }
 
+  
   // Notes filter (only present on notes.html)
   const notesToolbar = document.getElementById('notesToolbar');
   if (notesToolbar) {
